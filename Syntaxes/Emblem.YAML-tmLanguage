@@ -1,0 +1,189 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Emblem
+scopeName: source.emblem
+fileTypes: [emblem]
+uuid: aaa978a5-7989-4a95-b9a4-fe3d59eeb45e
+
+patterns:
+- include: '#comment'
+- include: '#tag-selector'
+- include: '#tag-alone'
+- include: '#text'
+- include: '#expression'
+
+repository:
+
+  tag-selector:
+    comment: A CSS selector, optionally prefixed with a HTML tag
+    name: meta.tag.emblem
+    begin: ((?:%[\w-]+)|(?:a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(?:h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video))?([.#][.#\w-]+)
+    beginCaptures:
+      # Capture the tag name
+      '1': {name: entity.name.tag}
+      # Capture the tag selector
+      '2': {name: entity.other.attribute-name}
+    end: (?=(:\s|\s=|\||$))
+    patterns:
+    - include: '#tag-includes'
+
+  tag-alone:
+    comment: A HTML tag without any CSS selector
+    name: meta.tag.emblem
+    begin: ((?:%[\w-]+)|(?:a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(?:h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video))(?![\w-])
+    beginCaptures:
+      # Capture the tag name
+      '1': {name: entity.name.tag}
+    end: (?=(:\s|\s=|\||$))
+    patterns:
+    - include: '#tag-includes'
+
+  expression:
+    comment: A handlebars expression, written like a tag or beginning with an equal sign
+    name: meta.expression.emblem
+    begin: ((?:==?\s?)?[\w-]+)
+    beginCaptures:
+      # Captire the expression name
+      '1': {name: 'support.constant'}
+    end: (?=:|=|\||$)
+    patterns:
+    - include: '#expression-includes'
+
+  text:
+    comment: Raw text, prefixed with a pipe character
+    name: markup.raw
+    begin: (?=(\||')\s*.)
+    end: (?=$)
+    patterns:
+    - include: '#inline-expression-unescaped'
+    - include: '#inline-expression'
+    - include: '#inline-expression-alternative'
+
+  comment:
+    comment: A comment, starting with a forward slash
+    name: comment.line.slash.emblem
+    match: ^\s*(\/)\s*\S.*$\n?
+    captures:
+      '1': {name: punctuation.section.comment.emblem}
+
+  tag-includes:
+    patterns:
+    - include: '#inline-expression-unescaped'
+    - include: '#inline-expression'
+    - include: '#inline-expression-alternative'
+    - include: '#explicit-attribute-expression'
+    - include: '#tag-attribute'
+    - include: '#double-quote-string'
+    - include: '#single-quote-string'
+
+  expression-includes:
+    patterns:
+    - include: '#tag-attribute'
+    - include: '#double-quote-string'
+    - include: '#single-quote-string'
+    - include: '#keyword'
+    - include: '#boolean'
+    - include: '#number'
+    - include: '#variable'
+
+  inline-expression:
+    comment: An inline handle bars expression, {{like "this"}}
+    begin: ({{)
+    beginCaptures:
+      '1': {name: support.constant}
+    end: (}})
+    endCaptures:
+      '1': {name: support.constant}
+    patterns:
+    - include: '#expression-includes'
+
+  inline-expression-unescaped:
+    comment: An unescaped inline handle bars expression, {{{like "this"}}}
+    begin: ({{{)
+    beginCaptures:
+      '1': {name: support.constant}
+    end: (}}})
+    endCaptures:
+      '1': {name: support.constant}
+    patterns:
+    - include: '#expression-includes'
+
+  inline-expression-alternative:
+    comment: An alternative inline handle bars expression, #{like "this"}
+    begin: (#{)\b
+    beginCaptures:
+      '1': {name: support.constant}
+    end: \b(})
+    endCaptures:
+      '1': {name: support.constant}
+    patterns:
+    - include: '#expression-includes'
+
+  tag-attribute:
+    comment: Custom attributes on tags and helpers (class="foo", click="save")
+    begin: ' (?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9]+)='
+    beginCaptures:
+      '1': {name: entity.other.attribute-name.namespace.xml}
+      '2': {name: entity.other.attribute-name.xml}
+      '3': {name: punctuation.separator.namespace.xml}
+      '4': {name: entity.other.attribute-name.localname.xml}
+    end: (?=[\s$})])
+    patterns:
+    - include: '#double-quote-string'
+    - include: '#single-quote-string'
+    - include: '#boolean'
+    - include: '#number'
+    - include: '#variable'
+    - include: '#explicit-attribute-expression'
+
+  explicit-attribute-expression:
+    comment: An expression like button{action "foo"} or span class={ isActive:active "foo" }
+    begin: ({)
+    end: (})
+    patterns:
+    - include: '#expression-includes'
+
+  double-quote-string:
+    comment: Just a double quoted string
+    name: string.quoted.double.emblem
+    begin: '"'
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.emblem}
+    end: '"'
+    endCaptures:
+      '0': {name: punctuation.definition.string.end.emblem}
+    patterns:
+    - name: constant.character.escape.emblem
+      match: \\.
+
+  single-quote-string:
+    comment: Just a single quoted sting
+    name: string.quoted.single.emblem
+    begin: "'"
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.emblem}
+    end: "'"
+    endCaptures:
+      '0': {name: punctuation.definition.string.end.emblem}
+    patterns:
+    - match: \\.
+      name: constant.character.escape.emblem
+
+  number:
+    name: constant.numeric
+    match: \d+(\.\d+)?
+
+  boolean:
+    patterns:
+    - name: constant.language.boolean.true
+      match: \btrue\b
+    - name: constant.language.boolean.false
+      match: \bfalse\b
+
+  keyword:
+    name: keyword.control
+    match: \b(in)\b
+
+  variable:
+    name: variable.parameter
+    match: \b[\w.:-]+[\w.-](?=[\s:$})])
