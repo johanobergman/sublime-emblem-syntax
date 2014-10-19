@@ -186,4 +186,4 @@ repository:
 
   variable:
     name: variable.parameter
-    match: \b[\w.:-]+[\w.-](?=[\s:$})])
+    match: \b[\w.-]+!?(?![\w-])
