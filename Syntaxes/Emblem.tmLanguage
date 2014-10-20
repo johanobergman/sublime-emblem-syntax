@@ -133,9 +133,9 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>A handlebars expression, written like a tag or beginning with an equal sign</string>
+			<string>A handlebars expression, written like a tag or starting with an equal sign</string>
 			<key>end</key>
-			<string>(?=:|=|\||$)</string>
+			<string>(?=:|=|\||$|'[^']+$)</string>
 			<key>name</key>
 			<string>meta.expression.emblem</string>
 			<key>patterns</key>
@@ -341,7 +341,7 @@
 			<key>comment</key>
 			<string>A HTML tag without any CSS selector</string>
 			<key>end</key>
-			<string>(?=(:\s|\s=|\||$))</string>
+			<string>(?=(:\s|\s=|$))</string>
 			<key>name</key>
 			<string>meta.tag.emblem</string>
 			<key>patterns</key>
@@ -465,7 +465,7 @@
 			<key>comment</key>
 			<string>A CSS selector, optionally prefixed with a HTML tag</string>
 			<key>end</key>
-			<string>(?=(:\s|\s=|\||$))</string>
+			<string>(?=(:\s|\s=|$))</string>
 			<key>name</key>
 			<string>meta.tag.emblem</string>
 			<key>patterns</key>

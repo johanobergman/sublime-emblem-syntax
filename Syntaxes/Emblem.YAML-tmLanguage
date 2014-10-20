@@ -23,7 +23,7 @@ repository:
       '1': {name: entity.name.tag}
       # Capture the tag selector
       '2': {name: entity.other.attribute-name}
-    end: (?=(:\s|\s=|\||$))
+    end: (?=(:\s|\s=|$))
     patterns:
     - include: '#tag-includes'
 
@@ -34,18 +34,18 @@ repository:
     beginCaptures:
       # Capture the tag name
       '1': {name: entity.name.tag}
-    end: (?=(:\s|\s=|\||$))
+    end: (?=(:\s|\s=|$))
     patterns:
     - include: '#tag-includes'
 
   expression:
-    comment: A handlebars expression, written like a tag or beginning with an equal sign
+    comment: A handlebars expression, written like a tag or starting with an equal sign
     name: meta.expression.emblem
     begin: ((?:==?\s?)?[\w-]+)
     beginCaptures:
-      # Captire the expression name
+      # Capture the expression name
       '1': {name: 'support.constant'}
-    end: (?=:|=|\||$)
+    end: (?=:|=|\||$|'[^']+$)
     patterns:
     - include: '#expression-includes'
 
