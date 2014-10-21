@@ -23,7 +23,7 @@ repository:
       '1': {name: entity.name.tag}
       # Capture the tag selector
       '2': {name: entity.other.attribute-name}
-    end: (?=(:\s|\s=|$))
+    end: (?=:\s|\s=|$)
     patterns:
     - include: '#tag-includes'
 
@@ -34,7 +34,7 @@ repository:
     beginCaptures:
       # Capture the tag name
       '1': {name: entity.name.tag}
-    end: (?=(:\s|\s=|$))
+    end: (?=:\s|\s=|$)
     patterns:
     - include: '#tag-includes'
 
@@ -45,7 +45,7 @@ repository:
     beginCaptures:
       # Capture the expression name
       '1': {name: 'support.constant'}
-    end: (?=:|=|\||$|'[^']+$)
+    end: (?=:\s|\s=|$|\||'[^']+$)
     patterns:
     - include: '#expression-includes'
 
