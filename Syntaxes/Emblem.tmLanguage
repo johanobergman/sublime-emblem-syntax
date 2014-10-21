@@ -382,7 +382,7 @@
 			<key>comment</key>
 			<string>Custom attributes on tags and helpers (class="foo", click="save")</string>
 			<key>end</key>
-			<string>(?=[\s$})])</string>
+			<string>(?=[\s$})]|:\s)</string>
 			<key>patterns</key>
 			<array>
 				<dict>
