@@ -73,8 +73,6 @@ repository:
     - include: '#inline-expression-alternative'
     - include: '#explicit-attribute-expression'
     - include: '#tag-attribute'
-    - include: '#double-quote-string'
-    - include: '#single-quote-string'
 
   expression-includes:
     patterns:

@@ -435,14 +435,6 @@
 					<key>include</key>
 					<string>#tag-attribute</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#double-quote-string</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#single-quote-string</string>
-				</dict>
 			</array>
 		</dict>
 		<key>tag-selector</key>
