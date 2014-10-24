@@ -129,7 +129,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -189,7 +189,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -201,7 +201,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -221,7 +221,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -233,7 +233,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -253,7 +253,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -265,7 +265,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>support.constant</string>
+					<string>storage.type.function support.constant</string>
 				</dict>
 			</dict>
 			<key>patterns</key>

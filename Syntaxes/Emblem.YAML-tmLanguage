@@ -44,7 +44,7 @@ repository:
     begin: ((?:==?\s?)?[\w-]+)
     beginCaptures:
       # Capture the expression name
-      '1': {name: 'support.constant'}
+      '1': {name: 'storage.type.function support.constant'}
     end: (?=:\s|\s=|$|\||'[^']+$)
     patterns:
     - include: '#expression-includes'
@@ -88,10 +88,10 @@ repository:
     comment: An inline handle bars expression, {{like "this"}}
     begin: ({{)
     beginCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     end: (}})
     endCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     patterns:
     - include: '#expression-includes'
 
@@ -99,10 +99,10 @@ repository:
     comment: An unescaped inline handle bars expression, {{{like "this"}}}
     begin: ({{{)
     beginCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     end: (}}})
     endCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     patterns:
     - include: '#expression-includes'
 
@@ -110,10 +110,10 @@ repository:
     comment: An alternative inline handle bars expression, #{like "this"}
     begin: (#{)
     beginCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     end: (})
     endCaptures:
-      '1': {name: support.constant}
+      '1': {name: storage.type.function support.constant}
     patterns:
     - include: '#expression-includes'
 
