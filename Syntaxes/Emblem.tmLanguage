@@ -41,13 +41,13 @@
 					<key>match</key>
 					<string>\btrue\b</string>
 					<key>name</key>
-					<string>constant.language.boolean.true</string>
+					<string>constant.language.boolean.true.emblem</string>
 				</dict>
 				<dict>
 					<key>match</key>
 					<string>\bfalse\b</string>
 					<key>name</key>
-					<string>constant.language.boolean.false</string>
+					<string>constant.language.boolean.false.emblem</string>
 				</dict>
 			</array>
 		</dict>
@@ -80,8 +80,6 @@
 					<string>punctuation.definition.string.begin.emblem</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Just a double quoted string</string>
 			<key>end</key>
 			<string>"</string>
 			<key>endCaptures</key>
@@ -129,7 +127,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -189,7 +187,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -201,7 +199,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -221,7 +219,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -233,7 +231,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -253,7 +251,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -265,7 +263,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function support.constant</string>
+					<string>storage.type.function.emblem support.constant.emblem</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -281,14 +279,14 @@
 			<key>match</key>
 			<string>\b(in)\b</string>
 			<key>name</key>
-			<string>keyword.control</string>
+			<string>keyword.control.emblem</string>
 		</dict>
 		<key>number</key>
 		<dict>
 			<key>match</key>
 			<string>\d+(\.\d+)?</string>
 			<key>name</key>
-			<string>constant.numeric</string>
+			<string>constant.numeric.emblem</string>
 		</dict>
 		<key>single-quote-string</key>
 		<dict>
@@ -302,8 +300,6 @@
 					<string>punctuation.definition.string.begin.emblem</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Just a single quoted sting</string>
 			<key>end</key>
 			<string>'</string>
 			<key>endCaptures</key>
@@ -335,7 +331,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag</string>
+					<string>entity.name.tag.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -361,22 +357,22 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.attribute-name.namespace.xml</string>
+					<string>entity.other.attribute-name.namespace.emblem</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.attribute-name.xml</string>
+					<string>entity.other.attribute-name.emblem</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.namespace.xml</string>
+					<string>punctuation.separator.namespace.emblem</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.attribute-name.localname.xml</string>
+					<string>entity.other.attribute-name.localname.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -446,12 +442,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag</string>
+					<string>entity.name.tag.emblem</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.attribute-name</string>
+					<string>entity.other.attribute-name.emblem</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -473,11 +469,11 @@
 			<key>begin</key>
 			<string>(?=(\||')\s*.)</string>
 			<key>comment</key>
-			<string>Raw text, prefixed with a pipe character</string>
+			<string>Raw text, prefixed with a pipe character or an apostrophe</string>
 			<key>end</key>
 			<string>(?=$)</string>
 			<key>name</key>
-			<string>markup.raw</string>
+			<string>markup.raw.emblem</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -499,7 +495,7 @@
 			<key>match</key>
 			<string>\b[\w.-]+!?(?![\w-])</string>
 			<key>name</key>
-			<string>variable.parameter</string>
+			<string>variable.parameter.emblem</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
