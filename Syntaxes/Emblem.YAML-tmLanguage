@@ -108,10 +108,10 @@ repository:
 
   inline-expression-alternative:
     comment: An alternative inline handle bars expression, #{like "this"}
-    begin: (#{)\b
+    begin: (#{)
     beginCaptures:
       '1': {name: support.constant}
-    end: \b(})
+    end: (})
     endCaptures:
       '1': {name: support.constant}
     patterns:

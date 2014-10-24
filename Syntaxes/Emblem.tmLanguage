@@ -215,7 +215,7 @@
 		<key>inline-expression-alternative</key>
 		<dict>
 			<key>begin</key>
-			<string>(#{)\b</string>
+			<string>(#{)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -227,7 +227,7 @@
 			<key>comment</key>
 			<string>An alternative inline handle bars expression,</string>
 			<key>end</key>
-			<string>\b(})</string>
+			<string>(})</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
