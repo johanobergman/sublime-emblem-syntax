@@ -2,7 +2,7 @@
 ---
 name: Emblem
 scopeName: source.emblem
-fileTypes: [emblem]
+fileTypes: [em, embl, emblem]
 uuid: aaa978a5-7989-4a95-b9a4-fe3d59eeb45e
 
 patterns:
